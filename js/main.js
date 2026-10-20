@@ -60,7 +60,7 @@
   function thumbs(list) {
     if (!list || !list.length) return null;
     return h("div", { class: "thumbs" }, list.map(function (p, i) {
-      return h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + p.alt, onclick: function () { openLightbox(list, i); } }, [img(p.src, p.alt)]);
+      return h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + p.alt, onclick: function () { openLightbox(list, i); } }, [img(p.src, p.alt, p.focus ? { style: "object-position:" + p.focus } : null)]);
     }));
   }
 

@@ -68,7 +68,8 @@ const SITE = {
     ]
   },
 
-  /* ---------- Work experience ---------- */
+  /* ---------- Work experience ----------
+     Optional per-photo `focus: "50% 40%"` sets which part of a tall photo shows in the small tile (x% y%). */
   experience: [
     {
       role: "Industrial Trainee, Process Development",
@@ -89,12 +90,12 @@ const SITE = {
       },
       photos: [
         { src: "img/experience-walton-trainee-selfie-main-building.webp", alt: "Trainee group selfie in front of the Walton main building" },
-        { src: "img/experience-walton-ashrafe-at-air-conditioner-building.webp", alt: "Ashrafe in front of the Walton Air Conditioner factory building" },
+        { src: "img/experience-walton-ashrafe-at-air-conditioner-building.webp", alt: "Ashrafe in front of the Walton Air Conditioner factory building", focus: "50% 55%" },
         { src: "img/experience-walton-trainee-group-helipad.webp", alt: "Trainee group in front of the Walton campus" },
         { src: "img/experience-walton-trainee-group-with-supervisor.webp", alt: "Trainee group with a supervisor" },
         { src: "img/experience-walton-fastener-team-office.webp", alt: "With the Fastener team in the office" },
-        { src: "img/experience-walton-ashrafe-at-workstation-stock-data.webp", alt: "At a workstation during the attachment" },
-        { src: "img/experience-walton-ashrafe-at-computer-building.webp", alt: "Ashrafe in front of the Walton Computer building" },
+        { src: "img/experience-walton-ashrafe-at-workstation-stock-data.webp", alt: "At a workstation during the attachment", focus: "50% 50%" },
+        { src: "img/experience-walton-ashrafe-at-computer-building.webp", alt: "Ashrafe in front of the Walton Computer building", focus: "50% 62%" },
         { src: "img/experience-walton-factory-loading-dock.webp", alt: "Factory building and loading dock" }
       ]
     }
