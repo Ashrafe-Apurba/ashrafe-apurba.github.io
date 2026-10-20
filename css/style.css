@@ -259,3 +259,5 @@ button.chip:hover{background:var(--accent);border-color:var(--accent);color:var(
   .flow li:nth-child(2n)::before,.flow li:nth-child(2n)::after{display:none}
   .flow li:last-child::before,.flow li:last-child::after{display:none}
 }
+
+.cert-sum{margin-top:6px;font-size:14px;color:var(--ink-2);line-height:1.5}

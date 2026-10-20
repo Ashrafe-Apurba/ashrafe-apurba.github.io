@@ -207,7 +207,7 @@
   S.certifications.forEach(function (c) {
     var el = h("article", { class: "cert" });
     if (c.image) el.appendChild(h("button", { class: "thumb", type: "button", "aria-label": "View certificate: " + c.name, onclick: function () { openLightbox([{ src: c.image, alt: c.name + " certificate" }], 0); } }, [img(c.image, c.name + " certificate")]));
-    var b = h("div", { class: "cbody" }, [h("h4", { text: c.name }), h("span", { class: "meta", text: c.issuer + " · " + c.date }), c.id ? h("span", { class: "meta", text: "ID " + c.id }) : null]);
+    var b = h("div", { class: "cbody" }, [h("h4", { text: c.name }), h("span", { class: "meta", text: c.issuer + " · " + c.date }), c.id ? h("span", { class: "meta", text: "ID " + c.id }) : null, c.summary ? h("p", { class: "cert-sum", text: c.summary }) : null]);
     if (c.url) b.appendChild(ext("Verify", c.url));
     el.appendChild(b); $("certList").appendChild(el);
   });

@@ -32,7 +32,7 @@ const SITE = {
       { label: "Graduation",   value: "March 2027" },
       { label: "CGPA",         value: "3.75" },
       { label: "Location",     value: "Rajshahi, Bangladesh" },
-      { label: "Record",       value: "2 scholarships · 1 paper · 6 certifications" }
+      { label: "Record",       value: "2 scholarships · 1 paper · 7 certifications" }
     ]
   },
 
@@ -428,6 +428,13 @@ const SITE = {
   /* ---------- Certifications ----------
      Add `image` to show a thumbnail, `url` for a verification link. */
   certifications: [
+    {
+      name: "International Supply Chains and Logistics",
+      issuer: "University of Colorado Boulder, via Coursera", date: "Oct 2026",
+      summary: "Global supply chains as networks, the SCOR model, sourcing and outsourcing (onshoring, nearshoring, offshoring), supplier evaluation, supply network design and risk, warehousing, international transport modes and logistics intermediaries.",
+      image: "img/certificates-coursera-international-supply-chains-and-logistics.webp",
+      url: "https://coursera.org/verify/98Q7OLRAK0SH"
+    },
     {
       name: "Diploma in Operations Management (Ops)",
       issuer: "Alison", date: "Oct 2026",
