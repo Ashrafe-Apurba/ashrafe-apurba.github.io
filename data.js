@@ -93,8 +93,7 @@ const SITE = {
         { src: "img/experience-walton-trainee-group-helipad.webp", alt: "Trainee group in front of the Walton campus" },
         { src: "img/experience-walton-trainee-group-with-supervisor.webp", alt: "Trainee group with a supervisor" },
         { src: "img/experience-walton-fastener-team-office.webp", alt: "With the Fastener team in the office" },
-        { src: "img/experience-walton-ashrafe-at-workstation.webp", alt: "At a workstation during the attachment" },
-        { src: "img/experience-walton-ashrafe-at-workstation-stock-data.webp", alt: "Working on stock data during the attachment" },
+        { src: "img/experience-walton-ashrafe-at-workstation-stock-data.webp", alt: "At a workstation during the attachment" },
         { src: "img/experience-walton-ashrafe-at-computer-building.webp", alt: "Ashrafe in front of the Walton Computer building" },
         { src: "img/experience-walton-factory-loading-dock.webp", alt: "Factory building and loading dock" }
       ]
