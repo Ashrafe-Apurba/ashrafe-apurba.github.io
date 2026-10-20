@@ -44,7 +44,7 @@ const SITE = {
     /* Optional: paste a Formspree / Web3Forms endpoint here so the contact form
        sends email directly. Leave empty to open the visitor's mail app instead. */
     /* Paste your free Web3Forms access key here (see UPDATING.md) so messages arrive in your inbox. */
-    web3formsKey: "",
+    web3formsKey: "4adb5423-fa29-4437-a383-8ced0aa12e08",
     formEndpoint: "",
     links: [
       { label: "LinkedIn",       url: "https://www.linkedin.com/in/ashrafebinalim/" },
