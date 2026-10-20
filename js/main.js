@@ -42,7 +42,7 @@
   var lb = $("lightbox"), lbSet = [], lbIdx = 0;
   function lbShow() {
     var it = lbSet[lbIdx];
-    $("lbImg").src = it.src; $("lbImg").alt = it.alt || "";
+    var li = $("lbImg"); li.style.maxWidth = ""; li.onload = function () { li.style.maxWidth = Math.max(320, li.naturalWidth * 1.5) + "px"; }; li.src = it.src; li.alt = it.alt || "";
     $("lbCap").textContent = (it.alt || "") + (lbSet.length > 1 ? "  (" + (lbIdx + 1) + "/" + lbSet.length + ")" : "");
     $("lbPrev").hidden = $("lbNext").hidden = lbSet.length < 2;
   }
@@ -111,11 +111,19 @@
   S.leadership.groups.forEach(function (g) {
     var card = h("article", { class: "card" }, [h("h3", { text: g.org }), h("p", { class: "org", text: g.summary })]);
     var roles = h("div", { class: "roles" }, g.roles.map(function (r) {
-      var right = h("div", { style: "display:flex;gap:12px;align-items:center;flex-wrap:wrap" }, [h("span", { class: "meta", text: r.period })]);
-      if (r.image) right.appendChild(h("button", { class: "btn btn-small", type: "button", onclick: function () { openLightbox([{ src: r.image, alt: r.alt }], 0); }, text: "View graphic" }));
-      return h("div", { class: "role" }, [h("b", { text: r.role }), right]);
+      return h("div", { class: "role" }, [h("b", { text: r.role }), h("span", { class: "meta", text: r.period })]);
     }));
     card.appendChild(roles);
+    var withImg = g.roles.filter(function (r) { return r.image; });
+    if (withImg.length) {
+      var set = withImg.map(function (r) { return { src: r.image, alt: r.alt || r.role }; });
+      card.appendChild(h("div", { class: "shots" + (withImg.length === 1 ? " one" : "") }, withImg.map(function (r, i) {
+        return h("figure", { class: "shot-fig" }, [
+          h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + r.role, onclick: function () { openLightbox(set, i); } }, [img(r.image, r.alt || r.role)]),
+          h("figcaption", null, [h("b", { text: r.role }), r.period])
+        ]);
+      })));
+    }
     var t = thumbs(g.photos); if (t) card.appendChild(t);
     if (g.link) card.appendChild(ext(g.link.label, g.link.url));
     $("leadershipList").appendChild(card);
@@ -255,7 +263,7 @@
   });
 
   /* ---------- nav ---------- */
-  var navItems = [["about", "About"], ["experience", "Experience"], ["projects", "Projects"], ["skills", "Skills"], ["achievements", "Achievements"], ["leadership", "Leadership"], ["contact", "Contact"]];
+  var navItems = [["about", "About"], ["experience", "Experience"], ["education", "Education"], ["leadership", "Activities"], ["skills", "Skills"], ["projects", "Projects"], ["achievements", "Achievements"], ["visits", "Visits"], ["contact", "Contact"]];
   var nav = $("nav");
   navItems.forEach(function (n) { nav.appendChild(h("a", { href: "#" + n[0], text: n[1] })); });
   var menuBtn = $("menuBtn");
