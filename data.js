@@ -43,6 +43,8 @@ const SITE = {
     location: "Rajshahi, Bangladesh",
     /* Optional: paste a Formspree / Web3Forms endpoint here so the contact form
        sends email directly. Leave empty to open the visitor's mail app instead. */
+    /* Paste your free Web3Forms access key here (see UPDATING.md) so messages arrive in your inbox. */
+    web3formsKey: "",
     formEndpoint: "",
     links: [
       { label: "LinkedIn",       url: "https://www.linkedin.com/in/ashrafebinalim/" },

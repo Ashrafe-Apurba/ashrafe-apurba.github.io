@@ -20,3 +20,9 @@ Repository → **Add file → Upload files** → drop changed files → **Commit
 
 ## Rules
 Keep quotes `" "` and commas exactly as in the examples. Change the `updated` date at the top of `data.js`.
+
+## Make the contact form deliver to your inbox (Web3Forms, free)
+1. Go to web3forms.com, enter ashrafacc20@gmail.com under "Create your Access Key" and submit.
+2. Open the email they send you and copy the access key.
+3. In `data.js`, paste it between the quotes: `web3formsKey: "your-key-here",` and commit.
+4. Send yourself a test message from the live site. Check Spam the first time.
