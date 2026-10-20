@@ -26,3 +26,6 @@ Keep quotes `" "` and commas exactly as in the examples. Change the `updated` da
 2. Open the email they send you and copy the access key.
 3. In `data.js`, paste it between the quotes: `web3formsKey: "your-key-here",` and commit.
 4. Send yourself a test message from the live site. Check Spam the first time.
+
+## Sharper small pictures (optional)
+The small tiles use a lighter copy of each picture from `img/thumbs/` (same file name, about 700 px wide). If a picture has no copy there, the full picture is used automatically, so nothing breaks. Ask Claude to generate the thumbnail for any new photo you add.

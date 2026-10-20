@@ -21,6 +21,12 @@
   function ext(label, url, cls) {
     return h("a", { class: cls || "link", href: url, target: "_blank", rel: "noopener noreferrer", text: label + " ↗" });
   }
+  /* Small tiles use a lighter, sharper copy from img/thumbs/ when one exists, else the full picture. */
+  function timg(src, alt, extra) {
+    var el = img(src.replace(/^img\//, "img/thumbs/"), alt, extra);
+    el.addEventListener("error", function () { if (el.getAttribute("src") !== src) el.setAttribute("src", src); });
+    return el;
+  }
   function img(src, alt, extra) { return h("img", Object.assign({ src: src, alt: alt || "", loading: "eager", decoding: "async" }, extra || {})); }
 
   /* ---------- theme ---------- */
@@ -60,7 +66,7 @@
   function thumbs(list) {
     if (!list || !list.length) return null;
     return h("div", { class: "thumbs" }, list.map(function (p, i) {
-      return h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + p.alt, onclick: function () { openLightbox(list, i); } }, [img(p.src, p.alt, p.focus ? { style: "object-position:" + p.focus } : null)]);
+      return h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + p.alt, onclick: function () { openLightbox(list, i); } }, [timg(p.src, p.alt, p.focus ? { style: "object-position:" + p.focus } : null)]);
     }));
   }
 
@@ -119,7 +125,7 @@
       var set = withImg.map(function (r) { return { src: r.image, alt: r.alt || r.role }; });
       card.appendChild(h("div", { class: "shots" + (withImg.length === 1 ? " one" : "") }, withImg.map(function (r, i) {
         return h("figure", { class: "shot-fig" }, [
-          h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + r.role, onclick: function () { openLightbox(set, i); } }, [img(r.image, r.alt || r.role)]),
+          h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + r.role, onclick: function () { openLightbox(set, i); } }, [timg(r.image, r.alt || r.role)]),
           h("figcaption", null, [h("b", { text: r.role }), r.period])
         ]);
       })));
@@ -173,7 +179,7 @@
     }
     list.forEach(function (p) {
       grid.appendChild(h("button", { class: "pcard", type: "button", onclick: function () { openProject(p); } }, [
-        h("div", { class: "shot" }, [img(p.image, p.alt)]),
+        h("div", { class: "shot" }, [timg(p.image, p.alt)]),
         h("div", { class: "body" }, [h("span", { class: "cat", text: p.category }), h("h3", { text: p.title }), h("p", { text: p.summary }), h("span", { class: "more", text: "View details →" })])
       ]));
     });
@@ -214,7 +220,7 @@
   });
   S.certifications.forEach(function (c) {
     var el = h("article", { class: "cert" });
-    if (c.image) el.appendChild(h("button", { class: "thumb", type: "button", "aria-label": "View certificate: " + c.name, onclick: function () { openLightbox([{ src: c.image, alt: c.name + " certificate" }], 0); } }, [img(c.image, c.name + " certificate")]));
+    if (c.image) el.appendChild(h("button", { class: "thumb", type: "button", "aria-label": "View certificate: " + c.name, onclick: function () { openLightbox([{ src: c.image, alt: c.name + " certificate" }], 0); } }, [timg(c.image, c.name + " certificate")]));
     var b = h("div", { class: "cbody" }, [h("h4", { text: c.name }), h("span", { class: "meta", text: c.issuer + " · " + c.date }), c.id ? h("span", { class: "meta", text: "ID " + c.id }) : null, c.summary ? h("p", { class: "cert-sum", text: c.summary }) : null]);
     if (c.url) b.appendChild(ext("Verify", c.url));
     el.appendChild(b); $("certList").appendChild(el);
