@@ -274,3 +274,5 @@ button.chip:hover{background:var(--accent);border-color:var(--accent);color:var(
 .shot-fig .thumb img{object-fit:contain;background:var(--surface-2)}
 .thumbs.big{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
 @media (max-width:640px){.shots{grid-template-columns:1fr 1fr}.shots.one{grid-template-columns:1fr}}
+
+.thumbs .thumb img{object-position:center 30%}

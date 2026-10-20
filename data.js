@@ -88,12 +88,15 @@ const SITE = {
         alt: "Walton completion certificate, personal identifiers covered"
       },
       photos: [
-        { src: "img/experience-walton-group-photo-building.webp",  alt: "Trainee group in front of the Walton building" },
-        { src: "img/experience-walton-team-office.webp",           alt: "With the Process Development team in the office" },
-        { src: "img/experience-walton-team-courtyard.webp",        alt: "With fellow trainees in the courtyard" },
-        { src: "img/experience-walton-factory-loading-dock.webp",  alt: "Factory building and loading dock" },
+        { src: "img/experience-walton-trainee-selfie-main-building.webp", alt: "Trainee group selfie in front of the Walton main building" },
+        { src: "img/experience-walton-ashrafe-at-air-conditioner-building.webp", alt: "Ashrafe in front of the Walton Air Conditioner factory building" },
+        { src: "img/experience-walton-trainee-group-helipad.webp", alt: "Trainee group in front of the Walton campus" },
+        { src: "img/experience-walton-trainee-group-with-supervisor.webp", alt: "Trainee group with a supervisor" },
+        { src: "img/experience-walton-fastener-team-office.webp", alt: "With the Fastener team in the office" },
         { src: "img/experience-walton-ashrafe-at-workstation.webp", alt: "At a workstation during the attachment" },
-        { src: "img/experience-walton-team-campus.webp",           alt: "With fellow trainees on the Walton campus" }
+        { src: "img/experience-walton-ashrafe-at-workstation-stock-data.webp", alt: "Working on stock data during the attachment" },
+        { src: "img/experience-walton-ashrafe-at-computer-building.webp", alt: "Ashrafe in front of the Walton Computer building" },
+        { src: "img/experience-walton-factory-loading-dock.webp", alt: "Factory building and loading dock" }
       ]
     }
   ],
@@ -486,7 +489,8 @@ const SITE = {
       date: "18 September 2025",
       text: "Industrial Visit 2.0, which finally went ahead after being postponed. We went through the production lines and saw how quality control and quality assurance testing in the lab keeps hygiene and standards in place.",
       photos: [
-        { src: "img/industrial-visits-industrial-visit-group-photo.webp", alt: "IPE batch group photo during the industrial visit" }
+        { src: "img/industrial-visits-industrial-visit-group-photo.webp", alt: "IPE batch group photo during the industrial visit" },
+        { src: "img/industrial-visits-square-pabna-ashrafe-at-factory.webp", alt: "Ashrafe at the Square Toiletries factory premises, Pabna" }
       ]
     }
   ]
