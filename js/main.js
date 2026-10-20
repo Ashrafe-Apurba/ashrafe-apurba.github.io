@@ -235,7 +235,14 @@
     e.preventDefault();
     var d = { name: $("fName").value.trim(), email: $("fEmail").value.trim(), subject: $("fSubject").value.trim(), message: $("fMessage").value.trim() };
     if (!d.name || !d.email || !d.message || d.email.indexOf("@") < 1) { msg.textContent = "Please fill in name, a valid email and a message."; return; }
-    if (C.formEndpoint) {
+    if (C.web3formsKey) {
+      msg.textContent = "Sending\u2026";
+      fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ access_key: C.web3formsKey, subject: (d.subject || "New message") + " (portfolio)", name: d.name, email: d.email, message: d.message }) })
+        .then(function (r) { return r.json(); })
+        .then(function (res) { if (!res.success) throw 0; msg.textContent = "Thanks, your message was sent."; form.reset(); })
+        .catch(function () { msg.textContent = "Could not send. Please email " + C.email + " directly."; });
+    } else if (C.formEndpoint) {
       msg.textContent = "Sending…";
       fetch(C.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(d) })
         .then(function (r) { if (!r.ok) throw 0; msg.textContent = "Thanks, your message was sent."; form.reset(); })
@@ -255,6 +262,13 @@
   function setMenu(o) { nav.classList.toggle("open", o); menuBtn.setAttribute("aria-expanded", String(o)); }
   menuBtn.addEventListener("click", function () { setMenu(!nav.classList.contains("open")); });
   nav.addEventListener("click", function (e) { if (e.target.tagName === "A") setMenu(false); });
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href="#top"]');
+    if (!a) return;
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    setMenu(false);
+  });
 
   if ("IntersectionObserver" in window) {
     var links = {}; nav.querySelectorAll("a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
