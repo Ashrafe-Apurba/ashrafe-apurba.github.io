@@ -32,7 +32,7 @@ const SITE = {
       { label: "Graduation",   value: "March 2027" },
       { label: "CGPA",         value: "3.75" },
       { label: "Location",     value: "Rajshahi, Bangladesh" },
-      { label: "Record",       value: "2 scholarships · 1 paper · 7 certifications" }
+      { label: "Record",       value: "2 scholarships · 1 paper · 8 certifications" }
     ]
   },
 
@@ -431,6 +431,13 @@ const SITE = {
   /* ---------- Certifications ----------
      Add `image` to show a thumbnail, `url` for a verification link. */
   certifications: [
+    {
+      name: "Supply Chain Operations and Management",
+      issuer: "Amazon Web Services, via Coursera", date: "Oct 2026", id: "G9IUZXNCECJI",
+      summary: "How supply chain operations are structured across lifecycle stages, how enterprise systems support execution, inventory, procurement and logistics workflows for material flow, and using operational data to find issues. Skills: order management, inventory control, reverse logistics, supply chain systems, ERP.",
+      image: "img/certificates-coursera-supply-chain-operations-and-management.webp",
+      url: "https://coursera.org/verify/G9IUZXNCECJI"
+    },
     {
       name: "International Supply Chains and Logistics",
       issuer: "University of Colorado Boulder, via Coursera", date: "Oct 2026",
