@@ -75,7 +75,11 @@
   document.title = P.name;
   $("brandMark").textContent = P.initials; $("brandName").textContent = P.name;
   $("heroStatus").textContent = P.status; $("heroName").textContent = P.name;
-  $("heroRole").textContent = P.role; $("heroIntro").textContent = P.intro;
+  (function () {
+    var parts = String(P.role).split("|"), el = $("heroRole");
+    el.appendChild(h("span", { class: "role-main", text: parts[0].trim() }));
+    if (parts[1]) el.appendChild(h("span", { class: "role-sub", text: parts.slice(1).join("|").trim() }));
+  })(); $("heroIntro").textContent = P.intro;
   var ph = $("heroPhoto"); ph.src = P.photo; ph.alt = P.photoAlt || "";
   if (P.cv) {
     ["cvTop", "cvHero", "cvView2"].forEach(function (id) { var a = $(id); a.href = P.cv; a.hidden = false; });

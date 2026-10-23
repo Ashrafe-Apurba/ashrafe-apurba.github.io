@@ -309,3 +309,8 @@ button.chip:hover{background:var(--accent);border-color:var(--accent);color:var(
 
 /* long descriptions are justified */
 .prose p,.hero-intro,.card .org,.dlg-body .lead,.points li,.cert-sum,.note,.focus span,.visit-text{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+
+.hero-role .role-main{display:block;white-space:nowrap}
+.hero-role .role-sub{display:block;margin-top:6px;font-size:clamp(15px,1.7vw,17px);font-weight:500}
+.hero-intro{text-align:left;hyphens:none;-webkit-hyphens:none}
+@media (max-width:520px){.hero-role .role-main{white-space:normal}}
