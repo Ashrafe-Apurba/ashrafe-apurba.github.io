@@ -422,7 +422,6 @@ const SITE = {
       title: "ISCEA Prize Global Supply Chain Case Competition 2026",
       meta: "60% CSCA scholarship",
       text: "Our team won a 60% scholarship toward the Certified Supply Chain Analyst (CSCA) certification.",
-      layout: "wide",
       images: [
         { src: "img/achievements-iscea-60-percent-scholarship-team.webp", alt: "ISCEA 60% scholarship winners, RUET IPE Club team" }
       ]
