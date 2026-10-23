@@ -289,3 +289,10 @@ button.chip:hover{background:var(--accent);border-color:var(--accent);color:var(
 .thumbs.fill.single{grid-template-columns:minmax(0,420px)}
 @media (max-width:860px){.split{grid-template-columns:1fr}.split-media.two{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.split-media.two{grid-template-columns:1fr}}
+
+/* two photos of different shapes sit side by side, heights follow the pictures */
+.photo-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:12px;align-items:center;margin-top:20px}
+.photo-row .thumb{aspect-ratio:auto;display:block;width:100%}
+.photo-row .thumb img{height:auto;object-fit:contain}
+@media (max-width:520px){.photo-row{grid-template-columns:1fr}}
+.split-text .roles{align-self:stretch}

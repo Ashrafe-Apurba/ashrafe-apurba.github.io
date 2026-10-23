@@ -115,23 +115,38 @@
 
   /* ---------- leadership ---------- */
   S.leadership.groups.forEach(function (g) {
-    var card = h("article", { class: "card" }, [h("h3", { text: g.org }), h("p", { class: "org", text: g.summary })]);
-    var roles = h("div", { class: "roles" }, g.roles.map(function (r) {
-      return h("div", { class: "role" }, [h("b", { text: r.role }), h("span", { class: "meta", text: r.period })]);
-    }));
-    card.appendChild(roles);
     var withImg = g.roles.filter(function (r) { return r.image; });
-    if (withImg.length) {
-      var set = withImg.map(function (r) { return { src: r.image, alt: r.alt || r.role }; });
-      card.appendChild(h("div", { class: "shots" + (withImg.length === 1 ? " one" : "") }, withImg.map(function (r, i) {
-        return h("figure", { class: "shot-fig" }, [
-          h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + r.role, onclick: function () { openLightbox(set, i); } }, [timg(r.image, r.alt || r.role)]),
-          h("figcaption", null, [h("b", { text: r.role }), r.period])
-        ]);
-      })));
+    var solo = withImg.length === 1 && !(g.photos && g.photos.length);
+    var textKids = [h("h3", { text: g.org }), h("p", { class: "org", text: g.summary })];
+    textKids.push(h("div", { class: "roles" }, g.roles.map(function (r) {
+      return h("div", { class: "role" }, [h("b", { text: r.role }), h("span", { class: "meta", text: r.period })]);
+    })));
+    if (g.link) textKids.push(ext(g.link.label, g.link.url));
+    var card;
+    if (solo) {
+      var r0 = withImg[0], set0 = [{ src: r0.image, alt: r0.alt || r0.role }];
+      card = h("article", { class: "card split" }, [
+        h("div", { class: "split-text" }, textKids),
+        h("div", { class: "split-media" }, [h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + r0.role, onclick: function () { openLightbox(set0, 0); } }, [timg(r0.image, r0.alt || r0.role)])])
+      ]);
+    } else {
+      card = h("article", { class: "card" }, textKids);
+      if (withImg.length) {
+        var set = withImg.map(function (r) { return { src: r.image, alt: r.alt || r.role }; });
+        card.insertBefore(h("div", { class: "shots" + (withImg.length === 1 ? " one" : "") }, withImg.map(function (r, i) {
+          return h("figure", { class: "shot-fig" }, [
+            h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + r.role, onclick: function () { openLightbox(set, i); } }, [timg(r.image, r.alt || r.role)]),
+            h("figcaption", null, [h("b", { text: r.role }), r.period])
+          ]);
+        })), g.link ? card.lastChild : null);
+      }
+      if (g.photos && g.photos.length) {
+        var row = h("div", { class: "photo-row" }, g.photos.map(function (p, i) {
+          return h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + p.alt, onclick: function () { openLightbox(g.photos, i); } }, [timg(p.src, p.alt)]);
+        }));
+        card.insertBefore(row, g.link ? card.lastChild : null);
+      }
     }
-    var t = thumbs(g.photos); if (t) card.appendChild(t);
-    if (g.link) card.appendChild(ext(g.link.label, g.link.url));
     $("leadershipList").appendChild(card);
   });
   S.leadership.memberships.forEach(function (m) {
