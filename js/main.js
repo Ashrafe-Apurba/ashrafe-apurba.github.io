@@ -77,7 +77,12 @@
   $("heroStatus").textContent = P.status; $("heroName").textContent = P.name;
   $("heroRole").textContent = P.role; $("heroIntro").textContent = P.intro;
   var ph = $("heroPhoto"); ph.src = P.photo; ph.alt = P.photoAlt || "";
-  if (P.cv) { ["cvTop", "cvHero"].forEach(function (id) { var a = $(id); a.href = P.cv; a.hidden = false; a.setAttribute("download", ""); }); }
+  if (P.cv) {
+    ["cvTop", "cvHero", "cvView2"].forEach(function (id) { var a = $(id); a.href = P.cv; a.hidden = false; });
+    $("cvDownload").href = P.cv; $("cv").hidden = false; $("cvUpdated").textContent = S.updated;
+  }
+  var li = (C.links || []).filter(function (l) { return /linkedin/i.test(l.label); })[0];
+  if (li) { $("liHero").href = li.url; $("liHero").hidden = false; }
   P.titleBlock.forEach(function (r, i, arr) {
     var full = r.value.length > 16;
     $("titleBlock").appendChild(h("div", { class: "cell" + (full ? " full" : "") }, [h("dt", { text: r.label }), h("dd", { text: r.value })]));

@@ -297,3 +297,12 @@ button.chip:hover{background:var(--accent);border-color:var(--accent);color:var(
 @media (max-width:520px){.photo-row{grid-template-columns:1fr}}
 .split-text .roles{align-self:stretch}
 .wide-media{margin-top:20px;max-width:560px}
+
+/* CV download band */
+.cv-band{margin-top:72px;border-top:1.5px solid var(--ink);background:var(--surface)}
+.cv-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;padding-top:40px;padding-bottom:40px}
+.cv-inner h2{border-top:4px solid var(--accent);font-size:clamp(24px,3vw,32px)}
+.cv-inner p{margin-top:10px;color:var(--ink-2)}
+.cv-actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn-big{min-height:54px;padding:0 28px;font-size:16px}
+@media (max-width:640px){.cv-actions{width:100%}.cv-actions .btn{flex:1 1 auto}}
