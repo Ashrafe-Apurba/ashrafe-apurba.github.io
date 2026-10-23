@@ -19,8 +19,8 @@ const SITE = {
   profile: {
     name: "Ashrafe Bin Alim",
     initials: "AB",
-    role: "Industrial & Production Engineering student at RUET",
-    status: "Open to supply chain, operations and logistics roles",
+    role: "Industrial & Production Engineering, RUET | Operations, Supply Chain & Analytics Enthusiast",
+    status: "Open To Opportunities in Industrial Engineering, Operations & Supply Chain",
     intro:
       "I apply engineering methods and data-driven analysis to understand operational problems, improve processes and support better business decisions. My experience spans industrial training, analytics projects, supply chain research and student leadership.",
     photo: "img/profile-portrait.webp",
@@ -55,9 +55,11 @@ const SITE = {
   /* ---------- About ---------- */
   about: {
     paragraphs: [
-      "I am a final-year Industrial & Production Engineering student at RUET. I like the part of engineering where a process gets measured, questioned and made better: supply chains, manufacturing lines, inventory, quality and cost.",
-      "My coursework and projects cover operations management, production planning, inventory management, quality and process improvement. At Walton I followed a fastener from wire to packed product and ran time studies on the electroplating line. Alongside that I build analytics dashboards to turn raw sales and operations data into decisions.",
-      "I am looking for a performance-driven team where I can contribute to efficiency, productivity, cost, quality and operational results."
+      "I’m an Industrial & Production Engineering student at Rajshahi University of Engineering & Technology (RUET), passionate about solving real-world problems through engineering principles, data analysis, and continuous improvement.",
+      "My interests span industrial engineering, production, supply chain management, operations, and business analytics. I enjoy exploring how processes work, identifying opportunities for improvement, and turning data into insights that support better decisions. Through projects using Python, Power BI, Tableau, and Excel, I have developed practical experience in data analysis, visualization, and problem-solving, alongside academic work in supply chain and inventory management.",
+      "Beyond technical work, I have been actively involved in student leadership and professional initiatives at RUET, including the RUET IPE Club and the IEOM RUET Student Chapter. These experiences have strengthened my teamwork, communication, coordination, and organizational skills.",
+      "I aim to bring together analytical thinking, engineering knowledge, and a willingness to learn to contribute to meaningful business and operational challenges. I’m particularly interested in opportunities across manufacturing, supply chain, operations, quality, and analytics where I can learn from experienced professionals, take on responsibilities, and grow through practical experience.",
+      "I believe in learning by doing, solving problems systematically, and continuously improving the way things work."
     ],
     focus: [
       { title: "Supply chain and logistics", text: "Inventory, sourcing, demand forecasting, distribution and cost analysis." },

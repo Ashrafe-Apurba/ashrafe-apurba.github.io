@@ -306,3 +306,6 @@ button.chip:hover{background:var(--accent);border-color:var(--accent);color:var(
 .cv-actions{display:flex;flex-wrap:wrap;gap:12px}
 .btn-big{min-height:54px;padding:0 28px;font-size:16px}
 @media (max-width:640px){.cv-actions{width:100%}.cv-actions .btn{flex:1 1 auto}}
+
+/* long descriptions are justified */
+.prose p,.hero-intro,.card .org,.dlg-body .lead,.points li,.cert-sum,.note,.focus span,.visit-text{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
