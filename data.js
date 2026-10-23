@@ -406,13 +406,6 @@ const SITE = {
      Optional `layout: "wide"` puts the picture under the text at full width (good for landscape photos). */
   achievements: [
     {
-      title: "Research paper published in Supply Chain Insider",
-      meta: "Volume 17, Issue 01 · October 2025",
-      text: "A Hybrid Approach to Logistics Optimization: Combining DEMATEL with Classical Transportation Algorithms in the Steel Industry. Co-authored with Shamsul Arafat Chowdhury, Md. Hasin Abrar Soumik, Syeda Sadia Zaman and Sumaiya Rashid Shoshi.",
-      images: [{ src: "img/achievements-research-paper-supply-chain-insider.webp", alt: "First page of the published paper" }],
-      link: { label: "Read the article", url: "https://lnkd.in/ghfWMJ3R" }
-    },
-    {
       title: "BIHRM Supply Chain Research Challenge 5.0",
       meta: "Top 10 teams · 90% ACSCP scholarship",
       text: "Placed among the top 10 teams and won a 90% scholarship for the Affiliate of Chartered Supply Chain Professional (ACSCP) program, awarded by BIHRM.",
@@ -425,6 +418,13 @@ const SITE = {
       images: [
         { src: "img/achievements-iscea-60-percent-scholarship-team.webp", alt: "ISCEA 60% scholarship winners, RUET IPE Club team" }
       ]
+    },
+    {
+      title: "Research paper published in Supply Chain Insider",
+      meta: "Volume 17, Issue 01 · October 2025",
+      text: "A Hybrid Approach to Logistics Optimization: Combining DEMATEL with Classical Transportation Algorithms in the Steel Industry. Co-authored with Shamsul Arafat Chowdhury, Md. Hasin Abrar Soumik, Syeda Sadia Zaman and Sumaiya Rashid Shoshi.",
+      images: [{ src: "img/achievements-research-paper-supply-chain-insider.webp", alt: "First page of the published paper" }],
+      link: { label: "Read the article", url: "https://lnkd.in/ghfWMJ3R" }
     }
   ],
 
