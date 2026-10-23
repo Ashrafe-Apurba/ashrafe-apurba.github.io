@@ -296,3 +296,4 @@ button.chip:hover{background:var(--accent);border-color:var(--accent);color:var(
 .photo-row .thumb img{height:auto;object-fit:contain}
 @media (max-width:520px){.photo-row{grid-template-columns:1fr}}
 .split-text .roles{align-self:stretch}
+.wide-media{margin-top:20px;max-width:560px}

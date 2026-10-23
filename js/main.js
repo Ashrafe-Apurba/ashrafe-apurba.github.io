@@ -235,7 +235,9 @@
       var media = h("div", { class: "split-media" + (a.images.length > 1 ? " two" : "") }, a.images.map(function (p, i) {
         return h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + p.alt, onclick: function () { openLightbox(a.images, i); } }, [timg(p.src, p.alt)]);
       }));
-      card = h("article", { class: "card split" }, [h("div", { class: "split-text" }, text), media]);
+      card = a.layout === "wide"
+        ? h("article", { class: "card" }, text.concat([h("div", { class: "wide-media" }, [media])]))
+        : h("article", { class: "card split" }, [h("div", { class: "split-text" }, text), media]);
     } else {
       card = h("article", { class: "card" }, text);
     }

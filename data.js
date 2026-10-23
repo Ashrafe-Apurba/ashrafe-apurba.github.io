@@ -402,7 +402,8 @@ const SITE = {
     }
   ],
 
-  /* ---------- Achievements ---------- */
+  /* ---------- Achievements ----------
+     Optional `layout: "wide"` puts the picture under the text at full width (good for landscape photos). */
   achievements: [
     {
       title: "Research paper published in Supply Chain Insider",
@@ -421,9 +422,9 @@ const SITE = {
       title: "ISCEA Prize Global Supply Chain Case Competition 2026",
       meta: "60% CSCA scholarship",
       text: "Our team won a 60% scholarship toward the Certified Supply Chain Analyst (CSCA) certification.",
+      layout: "wide",
       images: [
-        { src: "img/achievements-iscea-60-percent-scholarship-team.webp", alt: "ISCEA 60% scholarship winners, RUET IPE Club team" },
-        { src: "img/achievements-iscea-prize-scholarship-winners-list.webp", alt: "ISCEA Prize 2026 scholarship winners list" }
+        { src: "img/achievements-iscea-60-percent-scholarship-team.webp", alt: "ISCEA 60% scholarship winners, RUET IPE Club team" }
       ]
     }
   ],
