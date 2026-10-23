@@ -22,7 +22,7 @@ const SITE = {
     role: "Industrial & Production Engineering student at RUET",
     status: "Open to supply chain, operations and logistics roles",
     intro:
-      "I study how things get made and moved. My focus is operations, supply chain and quality, and I back it up with dashboards in Power BI, Tableau, Excel and Python.",
+      "I apply engineering methods and data-driven analysis to understand operational problems, improve processes and support better business decisions. My experience spans industrial training, analytics projects, supply chain research and student leadership.",
     photo: "img/profile-portrait.webp",
     photoAlt: "Portrait of Ashrafe Bin Alim",
     cv: "assets/Ashrafe-Bin-Alim-CV.pdf",
@@ -31,8 +31,7 @@ const SITE = {
       { label: "Institution",  value: "Rajshahi University of Engineering & Technology" },
       { label: "Graduation",   value: "March 2027" },
       { label: "CGPA",         value: "3.75" },
-      { label: "Location",     value: "Rajshahi, Bangladesh" },
-      { label: "Record",       value: "2 scholarships · 1 paper · 8 certifications" }
+      { label: "Location",     value: "Rajshahi, Bangladesh" }
     ]
   },
 
