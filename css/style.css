@@ -89,10 +89,10 @@ h1{font-size:clamp(44px,8vw,92px);font-weight:900;font-stretch:78%;line-height:.
 
 /* sections */
 .section{padding:72px 0;border-top:1px solid var(--line)}
-.section-grid{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:48px;align-items:start}
+.section-grid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:44px;align-items:start}
 .section-head{position:sticky;top:calc(var(--header-h) + env(safe-area-inset-top,0px) + 24px)}
 .section-head.wide{position:static;margin-bottom:28px;max-width:60ch}
-h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;font-stretch:85%;text-transform:uppercase;letter-spacing:-.005em;padding-top:14px;border-top:4px solid var(--accent);display:inline-block}
+h2{font-size:clamp(26px,3.1vw,36px);font-weight:800;font-stretch:85%;text-transform:uppercase;letter-spacing:-.005em;padding-top:14px;border-top:4px solid var(--accent);display:inline-block}
 .section-head p{margin-top:12px;color:var(--ink-3);font-size:14.5px;max-width:30ch}
 .section-head.wide p{max-width:none}
 .sub{font-size:20px;font-weight:700;font-stretch:90%;margin:48px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
@@ -276,3 +276,16 @@ button.chip:hover{background:var(--accent);border-color:var(--accent);color:var(
 @media (max-width:640px){.shots{grid-template-columns:1fr 1fr}.shots.one{grid-template-columns:1fr}}
 
 .thumbs .thumb img{object-position:center 30%}
+
+/* picture beside the text, no empty space */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:28px;align-items:start}
+.split-text{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.split-media{display:grid;gap:12px;min-width:0}
+.split-media.two{grid-template-columns:1fr 1fr}
+.split-media .thumb{aspect-ratio:auto;display:block;width:100%}
+.split-media .thumb img{height:auto;object-fit:contain}
+.thumbs.fill{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.thumbs.fill .thumb{aspect-ratio:4/3}
+.thumbs.fill.single{grid-template-columns:minmax(0,420px)}
+@media (max-width:860px){.split{grid-template-columns:1fr}.split-media.two{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.split-media.two{grid-template-columns:1fr}}

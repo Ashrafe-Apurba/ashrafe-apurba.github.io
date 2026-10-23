@@ -213,9 +213,17 @@
 
   /* ---------- achievements, certifications ---------- */
   S.achievements.forEach(function (a) {
-    var card = h("article", { class: "card" }, [h("span", { class: "meta", text: a.meta }), h("h3", { text: a.title }), h("p", { class: "org", text: a.text })]);
-    var t = thumbs(a.images); if (t) card.appendChild(t);
-    if (a.link) card.appendChild(ext(a.link.label, a.link.url));
+    var text = [h("span", { class: "meta", text: a.meta }), h("h3", { text: a.title }), h("p", { class: "org", text: a.text })];
+    if (a.link) text.push(ext(a.link.label, a.link.url));
+    var card;
+    if (a.images && a.images.length) {
+      var media = h("div", { class: "split-media" + (a.images.length > 1 ? " two" : "") }, a.images.map(function (p, i) {
+        return h("button", { class: "thumb", type: "button", "aria-label": "View larger: " + p.alt, onclick: function () { openLightbox(a.images, i); } }, [timg(p.src, p.alt)]);
+      }));
+      card = h("article", { class: "card split" }, [h("div", { class: "split-text" }, text), media]);
+    } else {
+      card = h("article", { class: "card" }, text);
+    }
     $("achievementList").appendChild(card);
   });
   S.certifications.forEach(function (c) {
@@ -229,7 +237,7 @@
   /* ---------- visits ---------- */
   S.visits.forEach(function (v) {
     var card = h("article", { class: "card" }, [h("span", { class: "meta", text: v.date }), h("h3", { text: v.place }), h("p", { class: "org", text: v.text })]);
-    var t = thumbs(v.photos); if (t) card.appendChild(t);
+    var t = thumbs(v.photos); if (t) { t.className += " fill" + (v.photos.length === 1 ? " single" : ""); card.appendChild(t); }
     $("visitList").appendChild(card);
   });
 
