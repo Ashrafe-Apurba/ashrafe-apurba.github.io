@@ -202,15 +202,15 @@
       note.appendChild(h("button", { class: "btn btn-small", type: "button", text: "Show all projects", onclick: function () { activeSkill = null; currentCat = "All"; renderProjects(); } }));
     }
     list.forEach(function (p) {
-      var multi = p.images && p.images.length > 1;
-      var shot = h("div", { class: "shot" + (multi ? " multi" : "") }, multi ? p.images.map(function (im, i) {
+      var pics = (p.images && p.images.length > 1) ? p.images : (p.gallery && p.gallery.length > 1) ? p.gallery : null, multi = !!pics;
+      var shot = h("div", { class: "shot" + (multi ? " multi" : "") }, multi ? pics.map(function (im, i) {
         var el = timg(im.src, i ? "" : im.alt); if (i === 0) el.className = "on"; return el;
       }) : [timg(p.image, p.alt)]);
       var card = h("button", { class: "pcard", type: "button", "aria-label": p.title + ": view details", onclick: function () { if (swiped) { swiped = false; return; } openProject(p); } }, [
         shot,
         h("div", { class: "body" }, [h("span", { class: "cat", text: p.category }), h("h3", { text: p.title }), h("p", { text: p.summary }), h("span", { class: "more", text: "View details →" })])
       ]);
-      if (multi) cycler(card, shot, p.images.length);
+      if (multi) cycler(card, shot, pics.length);
       grid.appendChild(card);
     });
   }
