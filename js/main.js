@@ -202,11 +202,43 @@
       note.appendChild(h("button", { class: "btn btn-small", type: "button", text: "Show all projects", onclick: function () { activeSkill = null; currentCat = "All"; renderProjects(); } }));
     }
     list.forEach(function (p) {
-      grid.appendChild(h("button", { class: "pcard", type: "button", onclick: function () { openProject(p); } }, [
-        h("div", { class: "shot" }, [timg(p.image, p.alt)]),
+      var multi = p.images && p.images.length > 1;
+      var shot = h("div", { class: "shot" + (multi ? " multi" : "") }, multi ? p.images.map(function (im, i) {
+        var el = timg(im.src, i ? "" : im.alt); if (i === 0) el.className = "on"; return el;
+      }) : [timg(p.image, p.alt)]);
+      var card = h("button", { class: "pcard", type: "button", "aria-label": p.title + ": view details", onclick: function () { if (swiped) { swiped = false; return; } openProject(p); } }, [
+        shot,
         h("div", { class: "body" }, [h("span", { class: "cat", text: p.category }), h("h3", { text: p.title }), h("p", { text: p.summary }), h("span", { class: "more", text: "View details →" })])
-      ]));
+      ]);
+      if (multi) cycler(card, shot, p.images.length);
+      grid.appendChild(card);
     });
+  }
+  /* Image carousel on a project card: auto-cycles while hovered or focused, resets on leave, swipe on touch screens. */
+  var swiped = false, reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  function cycler(card, shot, n) {
+    var imgs = shot.querySelectorAll("img"), cur = 0, timer = null;
+    var dots = h("span", { class: "dots", "aria-hidden": "true" }, Array.prototype.map.call(imgs, function () { return h("i"); }));
+    shot.appendChild(dots);
+    function show(i) {
+      cur = (i + n) % n;
+      Array.prototype.forEach.call(imgs, function (el, k) { el.classList.toggle("on", k === cur); });
+      Array.prototype.forEach.call(dots.children, function (d, k) { d.classList.toggle("on", k === cur); });
+    }
+    function start() { if (timer || reduceMotion.matches) return; show(cur + 1); timer = setInterval(function () { show(cur + 1); }, 1400); }
+    function stop() { clearInterval(timer); timer = null; show(0); }
+    show(0);
+    card.addEventListener("mouseenter", function (e) { if (e.pointerType !== "touch") start(); });
+    card.addEventListener("mouseleave", stop);
+    card.addEventListener("focus", function () { if (card.matches(":focus-visible")) start(); });
+    card.addEventListener("blur", stop);
+    var x0 = null, y0 = 0;
+    shot.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    shot.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+      if (Math.abs(dx) > 36 && Math.abs(dx) > Math.abs(dy) * 1.5) { show(cur + (dx < 0 ? 1 : -1)); swiped = true; setTimeout(function () { swiped = false; }, 350); }
+    }, { passive: true });
   }
   function filterBySkill(it) {
     activeSkill = it; renderProjects();
@@ -216,17 +248,28 @@
   var dlg = $("projectDialog");
   function openProject(p) {
     dlg.textContent = "";
-    var set = (p.gallery && p.gallery.length) ? p.gallery : [{ src: p.image, alt: p.alt }];
+    var set = (p.images && p.images.length) ? p.images : (p.gallery && p.gallery.length) ? p.gallery : [{ src: p.image, alt: p.alt }];
     var body = h("div", { class: "dlg-body" }, [
-      h("span", { class: "cat", text: p.category }),
+      h("span", { class: "cat", text: p.category + (p.tag ? " · " + p.tag : "") }),
       h("h3", { id: "pdTitle", text: p.title }),
-      h("p", { class: "lead", text: p.summary }),
-      h("h4", { text: "What it shows" }),
-      h("ul", { class: "points" }, p.highlights.map(function (t) { return h("li", { text: t }); }))
+      h("p", { class: "lead", text: p.summary })
     ]);
+    if (p.stats && p.stats.length) body.appendChild(h("dl", { class: "stats" }, p.stats.map(function (t) { return h("div", {}, [h("dt", { text: t.value }), h("dd", { text: t.label })]); })));
+    if (p.sections && p.sections.length) {
+      p.sections.forEach(function (sec) {
+        body.appendChild(h("h4", { text: sec.title }));
+        if (sec.text) body.appendChild(h("p", { class: "sec-text", text: sec.text }));
+        if (sec.points) body.appendChild(h("ul", { class: "points" }, sec.points.map(function (t) { return h("li", { text: t }); })));
+        if (sec.steps) body.appendChild(h("ol", { class: "steps" }, sec.steps.map(function (t) { return h("li", { text: t }); })));
+      });
+    } else if (p.highlights && p.highlights.length) {
+      body.appendChild(h("h4", { text: "What it shows" }));
+      body.appendChild(h("ul", { class: "points" }, p.highlights.map(function (t) { return h("li", { text: t }); })));
+    }
     if (p.note) body.appendChild(h("p", { class: "note", text: p.note }));
-    if (p.gallery && p.gallery.length > 1) { body.appendChild(h("h4", { text: "More pictures" })); body.appendChild(thumbs(p.gallery)); }
-    if (p.skills && p.skills.length) { body.appendChild(h("h4", { text: "Skills used" })); body.appendChild(h("div", { class: "chips" }, p.skills.map(function (s) { return h("span", { class: "chip", text: s }); }))); }
+    if (p.images && p.images.length > 1) { body.appendChild(h("h4", { text: "Gallery" })); body.appendChild(thumbs(p.images)); }
+    else if (p.gallery && p.gallery.length > 1) { body.appendChild(h("h4", { text: "More pictures" })); body.appendChild(thumbs(p.gallery)); }
+    if (p.skills && p.skills.length) { body.appendChild(h("h4", { text: p.sections ? "Tools" : "Skills used" })); body.appendChild(h("div", { class: "chips" }, p.skills.map(function (s) { return h("span", { class: "chip", text: s }); }))); }
     if (p.links && p.links.length) { var lr = h("div", { class: "link-row" }); p.links.forEach(function (l) { lr.appendChild(ext(l.label, l.url, "btn btn-primary")); }); body.appendChild(lr); }
     dlg.appendChild(h("button", { class: "dlg-close", type: "button", "aria-label": "Close", html: null, onclick: function () { dlg.close(); }, text: "×" }));
     dlg.appendChild(h("button", { class: "dlg-shot", type: "button", "aria-label": "View screenshot larger", onclick: function () { openLightbox(set, 0); } }, [img(p.image, p.alt, { loading: "eager" })]));

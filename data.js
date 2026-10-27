@@ -172,7 +172,7 @@ const SITE = {
       items: [
         { name: "Power BI",  projects: ["adidas", "ev", "earthquake"] },
         { name: "Tableau",   projects: ["fifa", "amazon"] },
-        { name: "Excel",     projects: ["sales-profit", "south-america"] },
+        { name: "Excel",     projects: ["abc", "sales-profit", "south-america"] },
         { name: "Python",    projects: ["retail"] },
         { name: "DAX",       projects: ["adidas"] },
         { name: "Pandas, Matplotlib, Seaborn", projects: ["retail"] },
@@ -231,6 +231,58 @@ const SITE = {
   /* ---------- Projects ----------
      category must be one of: "Power BI", "Tableau", "Excel", "Python", "Engineering" */
   projects: [
+    {
+      id: "abc",
+      title: "ABC Analysis for Inventory Management",
+      category: "Excel",
+      tag: "Data Analytics · 2026",
+      summary: "Ranked and classified 552 inventory items into A, B and C classes by annual sales value, with a Pareto curve showing where revenue is concentrated.",
+      image: "img/projects-excel-abc-pareto-chart.webp",
+      alt: "ABC analysis Pareto curve built in Excel",
+      /* Optional: extra pictures. The card cycles through them on hover (swipe on touch screens) and the details view shows them as a gallery. First one is the main picture. */
+      images: [
+        { src: "img/projects-excel-abc-pareto-chart.webp", alt: "ABC analysis Pareto curve with A, B and C zones" },
+        { src: "img/projects-excel-abc-summary-sheet.webp", alt: "ABC summary table and ranked item list in Excel" },
+        { src: "img/projects-excel-abc-data-sheet.webp", alt: "12-month sales history dataset with ABC class column" },
+        { src: "img/projects-excel-abc-concept-diagram.webp", alt: "Concept diagram of ABC classification (illustrative)" }
+      ],
+      /* Optional: headline numbers shown as tiles in the details view */
+      stats: [
+        { value: "552", label: "items analyzed" },
+        { value: "$393.1M", label: "total sales" },
+        { value: "36", label: "A items = 40% of revenue" },
+        { value: "149", label: "A + B items = 80% of revenue" },
+        { value: "403", label: "C items = 20% of revenue" }
+      ],
+      /* Optional: structured sections for the details view (use text, points, or steps) */
+      sections: [
+        { title: "Project overview", text: "The organization needed a systematic way to prioritize inventory items based on their contribution to annual revenue. This project builds an Excel-based ABC analysis that ranks and classifies 552 items into A, B and C categories by annual sales value." },
+        { title: "Objectives", points: [
+          "Rank inventory items by their contribution to annual revenue.",
+          "Classify items into A, B and C categories using revenue thresholds of 40% and 80%.",
+          "Support more focused inventory control, purchasing and review decisions."
+        ] },
+        { title: "Methodology", text: "Sales history and forecast data were consolidated into a 12-month sales dataset. PivotTables, ranking and cumulative percentage calculations were used to classify items against the 40% and 80% revenue thresholds." },
+        { title: "Implementation", steps: [
+          "Consolidated sales history and forecast data into a 12-month sales dataset.",
+          "Summarized annual sales value per item with a PivotTable and ranked items from highest to lowest.",
+          "Calculated cumulative percentages of items and of revenue.",
+          "Assigned each item to class A, B or C using the 40% and 80% thresholds.",
+          "Built a summary table and a Pareto curve to visualize revenue concentration.",
+          "Linked the classifications back to the source data for filtering and analysis."
+        ] },
+        { title: "Key features", points: [
+          "Ranked item list with item share and revenue share for every item.",
+          "Summary table of items and revenue by class.",
+          "Pareto curve with the A, B and C zones marked.",
+          "Class column linked to the source data, so items can be filtered by class."
+        ] },
+        { title: "Results and outcomes", text: "The 552 items represent $393.1 million in total sales. 36 A items (7% of the portfolio) contribute 40% of revenue, and 149 A and B items (27%) contribute 80%. The remaining 403 C items (73%) account for the last 20% of revenue, establishing a clear basis for differentiated inventory control." }
+      ],
+      highlights: [],
+      skills: ["Microsoft Excel", "PivotTables", "Formulas", "Cumulative analysis", "Pareto chart"],
+      links: []
+    },
     {
       id: "adidas",
       title: "Adidas Sales Analysis",
