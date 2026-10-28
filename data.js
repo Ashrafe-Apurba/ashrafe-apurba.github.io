@@ -172,7 +172,7 @@ const SITE = {
       items: [
         { name: "Power BI",  projects: ["adidas", "ev", "earthquake"] },
         { name: "Tableau",   projects: ["fifa", "amazon"] },
-        { name: "Excel",     projects: ["abc", "sales-profit", "south-america"] },
+        { name: "Excel",     projects: ["abc", "kpi", "sales-profit", "south-america"] },
         { name: "Python",    projects: ["retail"] },
         { name: "DAX",       projects: ["adidas"] },
         { name: "Pandas, Matplotlib, Seaborn", projects: ["retail"] },
@@ -281,6 +281,64 @@ const SITE = {
       ],
       highlights: [],
       skills: ["Microsoft Excel", "PivotTables", "Formulas", "Cumulative analysis", "Pareto chart"],
+      links: []
+    },
+    {
+      id: "kpi",
+      title: "Supply Chain & Logistics KPI Analysis",
+      category: "Excel",
+      tag: "Supply Chain Management · Data Analytics · 2026",
+      summary: "An Excel workbook that calculates and interprets six supply chain KPIs, from fill rate and inventory turnover to lead time and warehouse occupancy.",
+      image: "img/projects-excel-kpi-fill-rate.webp",
+      alt: "Fill rate KPI sheet in Excel",
+      images: [
+        { src: "img/projects-excel-kpi-fill-rate.webp", alt: "Fill rate sheet with color-coded results" },
+        { src: "img/projects-excel-kpi-inventory-turn.webp", alt: "Inventory turn sheet showing stock turn in days and cycles" },
+        { src: "img/projects-excel-kpi-inventory-accuracy.webp", alt: "Inventory accuracy sheet comparing system and physical stock" },
+        { src: "img/projects-excel-kpi-lead-time.webp", alt: "Lead time sheet comparing contract and real delivery dates" },
+        { src: "img/projects-excel-kpi-occupancy.webp", alt: "Warehouse occupancy sheet by sector" },
+        { src: "img/projects-excel-kpi-availability.webp", alt: "Availability sheet by product status" }
+      ],
+      stats: [
+        { value: "74%", label: "fill rate" },
+        { value: "2.6", label: "inventory turns (about 140 days)" },
+        { value: "50%", label: "inventory accuracy" },
+        { value: "37.4 days", label: "average actual lead time (+7.4 vs contract)" },
+        { value: "77%", label: "warehouse occupancy" },
+        { value: "63%", label: "availability rate" }
+      ],
+      sections: [
+        { title: "Project overview", text: "Supply chain performance depends on effective inventory control, order fulfillment, warehouse utilization and supplier delivery reliability. This project evaluates six key performance indicators (KPIs) to show how operational data can be used to assess performance and identify potential improvement areas." },
+        { title: "Objectives", points: [
+          "Evaluate six supply chain KPIs that cover inventory, fulfillment, delivery and warehouse performance.",
+          "Show how operational data can be used to assess performance.",
+          "Identify potential areas for improvement."
+        ] },
+        { title: "Methodology", points: [
+          "Availability rate: evaluated product availability using defined stock availability measures.",
+          "Fill rate: calculated the percentage of ordered quantities fulfilled.",
+          "Inventory turnover: measured turnover cycles and estimated inventory holding days using COGS and average inventory value.",
+          "Inventory accuracy: compared system inventory records with physical stock counts.",
+          "Lead time: compared contractual and actual delivery lead times to identify delays.",
+          "Occupancy rate: measured warehouse capacity utilization using available and occupied capacity."
+        ] },
+        { title: "Key features", points: [
+          "Structured data tables, one sheet per KPI.",
+          "Formula-driven calculations and summary metrics.",
+          "Color-coded performance indicators that highlight weak items at a glance."
+        ] },
+        { title: "Results and outcomes", points: [
+          "74% fill rate: 1,205 units supplied against 1,625 units ordered.",
+          "2.6 inventory turnover cycles: approximately 140 inventory days, based on the workbook's annual period.",
+          "50% inventory accuracy: only 5 of 10 checked items had exact matches between system records and physical stock counts.",
+          "37.4-day average actual lead time: exceeded the 30-day contractual lead time by an average of 7.4 days.",
+          "77% warehouse occupancy: 50,300 capacity units used out of 65,000 available.",
+          "63% availability rate across products."
+        ] },
+        { title: "Areas for further investigation", text: "These findings highlight potential areas for further investigation, including order fulfillment gaps, inventory discrepancies, supplier delivery delays and warehouse capacity utilization." }
+      ],
+      highlights: [],
+      skills: ["Microsoft Excel", "Excel formulas", "KPI calculation", "Conditional formatting", "Data analysis"],
       links: []
     },
     {
