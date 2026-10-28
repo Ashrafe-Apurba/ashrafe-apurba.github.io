@@ -285,7 +285,7 @@ const SITE = {
     },
     {
       id: "kpi",
-      title: "Supply Chain & Logistics KPI Analysis",
+      title: "Supply Chain & Inventory KPIs in Excel",
       category: "Excel",
       tag: "Supply Chain Management · Data Analytics · 2026",
       summary: "An Excel workbook that calculates and interprets six supply chain KPIs, from fill rate and inventory turnover to lead time and warehouse occupancy.",

@@ -272,7 +272,26 @@
     if (p.skills && p.skills.length) { body.appendChild(h("h4", { text: p.sections ? "Tools" : "Skills used" })); body.appendChild(h("div", { class: "chips" }, p.skills.map(function (s) { return h("span", { class: "chip", text: s }); }))); }
     if (p.links && p.links.length) { var lr = h("div", { class: "link-row" }); p.links.forEach(function (l) { lr.appendChild(ext(l.label, l.url, "btn btn-primary")); }); body.appendChild(lr); }
     dlg.appendChild(h("button", { class: "dlg-close", type: "button", "aria-label": "Close", html: null, onclick: function () { dlg.close(); }, text: "×" }));
-    dlg.appendChild(h("button", { class: "dlg-shot", type: "button", "aria-label": "View screenshot larger", onclick: function () { openLightbox(set, 0); } }, [img(p.image, p.alt, { loading: "eager" })]));
+    if (set.length > 1) {
+      var gi = 0, gimg = img(set[0].src, set[0].alt, { loading: "eager" }), gcount = h("span", { class: "gcount", "aria-live": "polite" });
+      var gdots = h("span", { class: "gdots" }, set.map(function (it, i) { return h("button", { type: "button", "aria-label": "Show picture " + (i + 1), onclick: function () { go(i); } }); }));
+      var go = function (i) {
+        gi = (i + set.length) % set.length; gimg.src = set[gi].src; gimg.alt = set[gi].alt || "";
+        gcount.textContent = (gi + 1) + " / " + set.length;
+        Array.prototype.forEach.call(gdots.children, function (d, k) { d.className = k === gi ? "on" : ""; });
+      };
+      var gx = null;
+      var gal = h("div", { class: "dlg-gal" }, [
+        h("button", { class: "dlg-shot", type: "button", "aria-label": "View picture larger", onclick: function () { openLightbox(set, gi); } }, [gimg]),
+        h("button", { class: "gnav prev", type: "button", "aria-label": "Previous picture", onclick: function () { go(gi - 1); }, text: "‹" }),
+        h("button", { class: "gnav next", type: "button", "aria-label": "Next picture", onclick: function () { go(gi + 1); }, text: "›" }),
+        gcount, gdots
+      ]);
+      gal.addEventListener("touchstart", function (e) { gx = e.touches[0].clientX; }, { passive: true });
+      gal.addEventListener("touchend", function (e) { if (gx === null) return; var dx = e.changedTouches[0].clientX - gx; gx = null; if (Math.abs(dx) > 40) go(gi + (dx < 0 ? 1 : -1)); }, { passive: true });
+      gal.addEventListener("keydown", function (e) { if (e.key === "ArrowLeft") go(gi - 1); if (e.key === "ArrowRight") go(gi + 1); });
+      go(0); dlg.appendChild(gal);
+    } else dlg.appendChild(h("button", { class: "dlg-shot", type: "button", "aria-label": "View screenshot larger", onclick: function () { openLightbox(set, 0); } }, [img(p.image, p.alt, { loading: "eager" })]));
     dlg.appendChild(body);
     dlg.showModal();
   }

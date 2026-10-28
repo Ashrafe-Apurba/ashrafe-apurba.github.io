@@ -341,3 +341,14 @@ button.chip:hover{background:var(--accent);border-color:var(--accent);color:var(
   .stats div:last-child:nth-child(odd){grid-column:1/-1}
   .dlg-body .lead{text-align:left;hyphens:none}
 }
+/* details view picture slider */
+.dlg-gal{position:relative;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.dlg-gal .dlg-shot{border-bottom:0}
+.gnav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:56px;border:1px solid var(--ink);background:var(--surface);color:var(--ink);font-size:30px;line-height:1;cursor:pointer;border-radius:4px;opacity:.92;transition:background .2s,color .2s}
+.gnav:hover{background:var(--ink);color:var(--surface)}
+.gnav.prev{left:10px}.gnav.next{right:10px}
+.gcount{position:absolute;left:12px;bottom:12px;padding:3px 9px;background:rgba(10,14,22,.78);color:#fff;font:500 12px var(--font-mono);border-radius:3px}
+.gdots{position:absolute;right:12px;bottom:12px;display:flex;gap:6px;padding:5px 8px;background:rgba(10,14,22,.78);border-radius:3px}
+.gdots button{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer}
+.gdots button.on{background:var(--accent);width:20px;border-radius:5px}
+@media (max-width:520px){.gnav{width:34px;height:46px;font-size:26px}.gnav.prev{left:6px}.gnav.next{right:6px}}
