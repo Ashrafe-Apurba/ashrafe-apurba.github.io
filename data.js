@@ -172,7 +172,7 @@ const SITE = {
       items: [
         { name: "Power BI",  projects: ["adidas", "ev", "earthquake"] },
         { name: "Tableau",   projects: ["fifa", "amazon"] },
-        { name: "Excel",     projects: ["abc", "kpi", "sales-profit", "south-america"] },
+        { name: "Excel",     projects: ["abc", "kpi", "eoq", "sales-profit", "south-america"] },
         { name: "Python",    projects: ["retail"] },
         { name: "DAX",       projects: ["adidas"] },
         { name: "Pandas, Matplotlib, Seaborn", projects: ["retail"] },
@@ -339,6 +339,68 @@ const SITE = {
       ],
       highlights: [],
       skills: ["Microsoft Excel", "Excel formulas", "KPI calculation", "Conditional formatting", "Data analysis"],
+      links: []
+    },
+    {
+      id: "eoq",
+      title: "EOQ, Reorder Point & Safety Stock in Inventory Control",
+      category: "Excel",
+      tag: "Inventory Management · 2026",
+      summary: "An Excel inventory control model that calculates the Economic Order Quantity (EOQ), reorder point and safety stock for three manufacturing raw materials. A live stock-monitoring chart and status flags show when to reorder.",
+      image: "img/projects-excel-eoq-chart.webp",
+      alt: "Current stock against safety stock and reorder point chart",
+      images: [
+        { src: "img/projects-excel-eoq-chart.webp", alt: "Chart of current stock against safety stock and reorder point" },
+        { src: "img/projects-excel-eoq-monitor.webp", alt: "Stock Monitor table with OK, REORDER NOW and CRITICAL status flags" },
+        { src: "img/projects-excel-eoq-inputs.webp", alt: "EOQ Calc sheet: inputs, holding cost and ordering cost" },
+        { src: "img/projects-excel-eoq-results.webp", alt: "EOQ Calc sheet: EOQ results and reorder policy" }
+      ],
+      stats: [
+        { value: "3", label: "raw materials modelled" },
+        { value: "86 · 75 · 35", label: "EOQ in tonnes: steel, ABS, copper tube" },
+        { value: "84.8 · 90.8 · 40.8", label: "reorder points in tonnes" },
+        { value: "30 · 25 · 12", label: "safety stock in tonnes" },
+        { value: "15%", label: "total annual holding rate" },
+        { value: "3 status flags", label: "OK (steel), REORDER NOW (ABS), CRITICAL (copper)" }
+      ],
+      sections: [
+        { title: "Project overview", text: "Manufacturers need to decide how much to order and when to order. This project builds a simple, reusable Excel model for three raw materials common in appliance manufacturing: CRCA steel sheet, ABS plastic granules and copper tube for compressors. It applies the Wilson EOQ model and extends it with reorder-point and safety-stock logic. It also adds a monitoring dashboard, so the EOQ calculation becomes a daily decision tool." },
+        { title: "Objectives", points: [
+          "Calculate the cost-minimising order quantity for each raw material.",
+          "Build a realistic ordering-cost and holding-cost structure for each item.",
+          "Set a reorder point and safety stock so production is not interrupted during supplier lead time.",
+          "Monitor current stock against safety stock and the reorder point, and flag items that need action."
+        ] },
+        { title: "Methodology", points: [
+          "Holding cost: purchase price × the sum of storage, insurance, cost of money and shrinkage percentages (15% in total).",
+          "Ordering cost: the hours spent on each ordering step (order placement, validation, supplier communication, follow-up, reception, incoming inspection, storage and payment) × an hourly rate, plus fixed costs per order for LC, freight and customs.",
+          "EOQ = √(2 × D × TC / HC), rounded up to whole units.",
+          "Reorder point = daily demand × supplier lead time + safety stock.",
+          "Maximum stock = safety stock + EOQ. A check cell confirms the ROP stays below this level."
+        ] },
+        { title: "Implementation", steps: [
+          "EOQ Calc sheet: an input-driven calculation for all three items, with blue input cells and formula cells.",
+          "It gives EOQ, orders per year, order cycle in days, annual ordering cost, annual holding cost and total cost.",
+          "Stock Monitor sheet: a table of current stock, safety stock, ROP, EOQ, maximum stock, status, suggested order quantity and days of cover.",
+          "Status logic: CRITICAL when stock is at or below safety stock, REORDER NOW when stock is at or below the ROP, and OK otherwise, with colour-coded conditional formatting.",
+          "Chart: a combination column chart with markers. Columns show current stock, and markers show safety stock and the reorder point for each item."
+        ] },
+        { title: "Key features", points: [
+          "Fully formula-driven, so changing any input updates the EOQ, ROP, status and chart.",
+          "Uses a detailed ordering-cost build-up instead of a single assumed figure.",
+          "Includes a ROP vs. maximum-stock check.",
+          "Gives an instant visual and colour-coded view of which items to order."
+        ] },
+        { title: "Results and outcomes", points: [
+          "EOQ: 86 tonnes for steel, 75 for ABS and 35 for copper tube.",
+          "Reorder points: 84.8, 90.8 and 40.8 tonnes, with safety stocks of 30, 25 and 12 tonnes.",
+          "Annual ordering and holding costs are nearly equal for each item, which confirms the cost-minimising order quantity.",
+          "The monitor shows steel as OK, ABS as REORDER NOW and copper as CRITICAL. This demonstrates how the model drives purchasing decisions."
+        ] },
+        { title: "Practical use", text: "This approach suits purchasing and production-planning teams. They can use it to set order sizes, reorder triggers and buffer stock for raw materials, and to compare ordering cost against inventory-holding cost." }
+      ],
+      highlights: [],
+      skills: ["Microsoft Excel", "Excel formulas", "EOQ modelling", "Reorder point and safety stock", "Cost analysis", "Conditional formatting", "Combination charts", "Dashboard design"],
       links: []
     },
     {

@@ -355,3 +355,4 @@ button.chip:hover{background:var(--accent);border-color:var(--accent);color:var(
 /* fixed-size slider frame so arrows never move between pictures */
 .dlg-gal .dlg-shot{aspect-ratio:16/10;max-height:72dvh;overflow:hidden;background:#0b0f16}
 .dlg-gal .dlg-shot img{width:100%;height:100%;object-fit:contain;display:block}
+.stats dt.long{font-size:clamp(17px,2.4vw,20px);line-height:1.25;padding-top:4px}

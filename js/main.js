@@ -254,7 +254,7 @@
       h("h3", { id: "pdTitle", text: p.title }),
       h("p", { class: "lead", text: p.summary })
     ]);
-    if (p.stats && p.stats.length) body.appendChild(h("dl", { class: "stats" }, p.stats.map(function (t) { return h("div", {}, [h("dt", { text: t.value }), h("dd", { text: t.label })]); })));
+    if (p.stats && p.stats.length) body.appendChild(h("dl", { class: "stats" }, p.stats.map(function (t) { return h("div", {}, [h("dt", { text: t.value, class: t.value.length > 11 ? "long" : "" }), h("dd", { text: t.label })]); })));
     if (p.sections && p.sections.length) {
       p.sections.forEach(function (sec) {
         body.appendChild(h("h4", { text: sec.title }));
