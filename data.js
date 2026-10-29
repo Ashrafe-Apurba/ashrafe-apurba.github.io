@@ -172,7 +172,7 @@ const SITE = {
       items: [
         { name: "Power BI",  projects: ["adidas", "ev", "earthquake"] },
         { name: "Tableau",   projects: ["fifa", "amazon"] },
-        { name: "Excel",     projects: ["abc", "kpi", "eoq", "sales-profit", "south-america"] },
+        { name: "Excel",     projects: ["abc", "kpi", "eoq", "fleet", "sales-profit", "south-america"] },
         { name: "Python",    projects: ["retail"] },
         { name: "DAX",       projects: ["adidas"] },
         { name: "Pandas, Matplotlib, Seaborn", projects: ["retail"] },
@@ -401,6 +401,56 @@ const SITE = {
       ],
       highlights: [],
       skills: ["Microsoft Excel", "Excel formulas", "EOQ modelling", "Reorder point and safety stock", "Cost analysis", "Conditional formatting", "Combination charts", "Dashboard design"],
+      links: []
+    },
+    {
+      id: "fleet",
+      title: "Fleet Management and Logistics Performance Dashboard",
+      category: "Excel",
+      tag: "Data Analytics · Logistics Operations · 2026",
+      summary: "An interactive Excel dashboard that summarizes a year of fleet trips, distances, labor costs and cargo so a fleet manager can review them at a glance.",
+      image: "img/projects-excel-fleet-dashboard.webp",
+      alt: "Fleet management and logistics dashboard in Excel",
+      images: [
+        { src: "img/projects-excel-fleet-dashboard.webp", alt: "Fleet management dashboard with KPI cards and charts" },
+        { src: "img/projects-excel-fleet-excel-view.webp", alt: "The dashboard sheet as seen in Excel, with driver and month filters" },
+        { src: "img/projects-excel-fleet-calc.webp", alt: "Calc sheet with SUMIFS summaries by month, classification and cargo" },
+        { src: "img/projects-excel-fleet-database.webp", alt: "Database sheet with the trip log" }
+      ],
+      stats: [
+        { value: "$27,200", label: "total expenses" },
+        { value: "24", label: "trips" },
+        { value: "868 km", label: "total distance" },
+        { value: "314 tons", label: "cargo carried" },
+        { value: "8 · 16", label: "return and one-way trips" },
+        { value: "44% · 56%", label: "salaries and wages share of expenses" }
+      ],
+      sections: [
+        { title: "Project overview", text: "Fleet trip records are often kept in one long table, which makes costs, workload and trip patterns hard to see quickly. This project asks how a year of trips, distances, labor costs and cargo can be summarized so a fleet manager can review them at a glance. I designed and built an interactive Excel dashboard for a self-learning project, using an imaginary dataset of 24 trips for 2022. The layout was modeled on a reference dashboard design, and I set up the data table, the calculation logic, the charts and the filters myself." },
+        { title: "Methodology", points: [
+          "Structured the trip log with driver, buddy, vehicle, distance, trip classification, route type, cargo, weight, wages and salaries.",
+          "Calculated total expenses as wages plus salaries.",
+          "Summarized the data with SUMIFS and COUNTIFS formulas on a separate calculation sheet.",
+          "Added driver and month dropdown filters using data validation, with conditional formatting to highlight the selection.",
+          "Visualized the results with KPI cards and charts for monthly expenses, monthly trips, wage and salary split, trip classification, income by classification and cargo types."
+        ] },
+        { title: "Key features", points: [
+          "Driver and month dropdown filters that update the dashboard.",
+          "KPI cards for expenses, salaries, wages, trips, weight and distance.",
+          "Charts for monthly expenses, monthly trips, wage and salary split, trip classification, income by classification and cargo types.",
+          "Separate Database, Calc and Dashboard sheets."
+        ] },
+        { title: "Results and outcomes", points: [
+          "Total expenses were USD 27,200: USD 12,100 in salaries (44%) and USD 15,100 in wages (56%).",
+          "The 24 trips covered 868 km and carried 314 tons. Of these, 8 were return trips and 16 were one-way, and 5 used hired transportation.",
+          "By classification, 16 trips were Close, 6 were Far and 2 were Regular.",
+          "March (USD 4,000) and October (USD 3,700) were the highest-expense months.",
+          "The two drivers completed 12 trips each, and the two cargo types, woodpellet and woodchip, had 12 trips each."
+        ] }
+      ],
+      note: "Self-learning project. The figures come from simulated data, so they show what the dashboard can reveal rather than real operational results.",
+      highlights: [],
+      skills: ["Microsoft Excel", "SUMIFS", "COUNTIFS", "Data validation", "Conditional formatting", "Charts", "Dashboard design"],
       links: []
     },
     {
