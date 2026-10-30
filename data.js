@@ -29,7 +29,7 @@ const SITE = {
     titleBlock: [
       { label: "Discipline",   value: "Industrial & Production Engineering" },
       { label: "Institution",  value: "Rajshahi University of Engineering & Technology" },
-      { label: "Graduation",   value: "March 2027" },
+      { label: "Graduation",   value: "January 2027" },
       { label: "CGPA",         value: "3.75" },
       { label: "Location",     value: "Rajshahi, Bangladesh" }
     ]
@@ -107,7 +107,7 @@ const SITE = {
     {
       degree: "B.Sc. in Industrial & Production Engineering",
       school: "Rajshahi University of Engineering & Technology (RUET)",
-      period: "Jan 2023 – Mar 2027",
+      period: "Jan 2023 – Jan 2027",
       note: "CGPA 3.75"
     },
     {
