@@ -269,7 +269,7 @@
     if (p.note) body.appendChild(h("p", { class: "note", text: p.note }));
     if (p.images && p.images.length > 1) { body.appendChild(h("h4", { text: "Gallery" })); body.appendChild(thumbs(p.images)); }
     else if (p.gallery && p.gallery.length > 1) { body.appendChild(h("h4", { text: "More pictures" })); body.appendChild(thumbs(p.gallery)); }
-    if (p.skills && p.skills.length) { body.appendChild(h("h4", { text: p.sections ? "Tools" : "Skills used" })); body.appendChild(h("div", { class: "chips" }, p.skills.map(function (s) { return h("span", { class: "chip", text: s }); }))); }
+    if (p.skills && p.skills.length) { body.appendChild(h("h4", { text: p.sections ? "Skills and tools" : "Skills used" })); body.appendChild(h("div", { class: "chips" }, p.skills.map(function (s) { return h("span", { class: "chip", text: s }); }))); }
     if (p.links && p.links.length) { var lr = h("div", { class: "link-row" }); p.links.forEach(function (l) { lr.appendChild(ext(l.label, l.url, "btn btn-primary")); }); body.appendChild(lr); }
     dlg.appendChild(h("button", { class: "dlg-close", type: "button", "aria-label": "Close", html: null, onclick: function () { dlg.close(); }, text: "×" }));
     if (set.length > 1) {

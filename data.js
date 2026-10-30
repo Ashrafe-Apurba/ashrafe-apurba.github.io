@@ -589,15 +589,19 @@ const SITE = {
       id: "lamp",
       title: "Voice-Controlled Lamp",
       category: "Engineering",
-      summary: "A working product prototype taken from customer needs to a built lamp.",
+      tag: "Product Design & Development",
+      summary: "A product development project that took a voice-controlled lamp from market research and customer needs to a working prototype.",
       image: "img/projects-voice-controlled-lamp-team.webp",
       alt: "Project team with the lit lamp prototype",
-      highlights: [
-        "Used product design methods, including QFD and Kano analysis.",
-        "CAD model of the lamp, material selection and manufacturing process planning.",
-        "Built a functional prototype."
+      sections: [
+        { title: "What I did", points: [
+          "Conducted market research, competitor analysis and customer surveys to identify market gaps and user requirements.",
+          "Applied product development methodologies, including idea generation, QFD and Kano analysis, to translate customer needs into design specifications.",
+          "Developed a functional prototype using CAD, material selection and manufacturing process planning."
+        ] }
       ],
-      skills: ["Product design", "QFD", "Kano analysis", "CAD", "Material selection"],
+      highlights: [],
+      skills: ["Market research", "Competitor analysis", "Customer surveys", "Idea generation", "QFD", "Kano analysis", "CAD", "Material selection", "Manufacturing process planning"],
       gallery: [
         { src: "img/projects-voice-controlled-lamp-team.webp", alt: "Project team with the lit lamp prototype" },
         { src: "img/projects-voice-controlled-lamp-render.webp", alt: "CAD render of the lamp" }
