@@ -659,6 +659,13 @@ const SITE = {
      Add `image` to show a thumbnail, `url` for a verification link. */
   certifications: [
     {
+      name: "Mastering Total Quality Management: Analyze, Apply & Improve",
+      issuer: "EDUCBA, via Coursera", date: "Oct 2026", id: "52QPRBGFNOZQ",
+      summary: "A course on analyzing, applying and improving quality through Total Quality Management. Skills: Total Quality Management (TQM), quality assurance.",
+      image: "img/certificates-coursera-mastering-total-quality-management.webp",
+      url: "https://coursera.org/verify/52QPRBGFNOZQ"
+    },
+    {
       name: "Supply Chain Operations and Management",
       issuer: "Amazon Web Services, via Coursera", date: "Oct 2026", id: "G9IUZXNCECJI",
       summary: "How supply chain operations are structured across lifecycle stages, how enterprise systems support execution, inventory, procurement and logistics workflows for material flow, and using operational data to find issues. Skills: order management, inventory control, reverse logistics, supply chain systems, ERP.",
