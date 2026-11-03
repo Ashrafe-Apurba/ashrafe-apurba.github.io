@@ -49,7 +49,7 @@
   function lbShow() {
     var it = lbSet[lbIdx];
     var li = $("lbImg"); li.style.maxWidth = ""; li.onload = function () { li.style.maxWidth = Math.max(320, li.naturalWidth * 1.5) + "px"; }; li.src = it.src; li.alt = it.alt || "";
-    $("lbCap").textContent = (it.alt || "") + (lbSet.length > 1 ? "  (" + (lbIdx + 1) + "/" + lbSet.length + ")" : "");
+    $("lbCap").textContent = (it.caption || it.alt || "") + (lbSet.length > 1 ? "  (" + (lbIdx + 1) + "/" + lbSet.length + ")" : ""); $("lbCap").className = "lb-cap" + (it.caption ? " long" : "");
     $("lbPrev").hidden = $("lbNext").hidden = lbSet.length < 2;
   }
   function openLightbox(items, i) { lbSet = items; lbIdx = i || 0; lbShow(); if (!lb.open) lb.showModal(); }
@@ -316,7 +316,7 @@
   });
   S.certifications.forEach(function (c) {
     var el = h("article", { class: "cert" });
-    if (c.image) el.appendChild(h("button", { class: "thumb", type: "button", "aria-label": "View certificate: " + c.name, onclick: function () { openLightbox([{ src: c.image, alt: c.name + " certificate" }], 0); } }, [timg(c.image, c.name + " certificate")]));
+    if (c.image) el.appendChild(h("button", { class: "thumb", type: "button", "aria-label": "View certificate: " + c.name, onclick: function () { openLightbox([{ src: c.image, alt: c.name + " certificate", caption: c.detail ? c.name + "\n" + c.detail : null }], 0); } }, [timg(c.image, c.name + " certificate")]));
     var b = h("div", { class: "cbody" }, [h("h4", { text: c.name }), h("span", { class: "meta", text: c.issuer + " · " + c.date }), c.id ? h("span", { class: "meta", text: "ID " + c.id }) : null, c.summary ? h("p", { class: "cert-sum", text: c.summary }) : null]);
     if (c.url) b.appendChild(ext("Verify", c.url));
     el.appendChild(b); $("certList").appendChild(el);

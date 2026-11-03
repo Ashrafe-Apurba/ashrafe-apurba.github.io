@@ -356,3 +356,8 @@ button.chip:hover{background:var(--accent);border-color:var(--accent);color:var(
 .dlg-gal .dlg-shot{aspect-ratio:16/10;max-height:72dvh;overflow:hidden;background:#0b0f16}
 .dlg-gal .dlg-shot img{width:100%;height:100%;object-fit:contain;display:block}
 .stats dt.long{font-size:clamp(17px,2.4vw,20px);line-height:1.25;padding-top:4px}
+.lb-cap.long{white-space:pre-line;text-align:left;max-width:820px;margin:0 auto;font-size:13.5px;line-height:1.55}
+.lb-cap.long::first-line{font-weight:700;color:#fff}
+.lightbox:has(.lb-cap.long) .lb-stage{min-height:0}
+.lightbox:has(.lb-cap.long) .lb-stage img{max-height:54dvh}
+.lb-stage img{min-width:0;height:auto}

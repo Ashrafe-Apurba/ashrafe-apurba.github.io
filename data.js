@@ -661,7 +661,8 @@ const SITE = {
     {
       name: "Mastering Total Quality Management: Analyze, Apply & Improve",
       issuer: "EDUCBA, via Coursera", date: "Oct 2026", id: "52QPRBGFNOZQ",
-      summary: "A course on analyzing, applying and improving quality through Total Quality Management. Skills: Total Quality Management (TQM), quality assurance.",
+      summary: "Foundations and practice of Total Quality Management: its evolution and guiding principles, implementation frameworks, customer satisfaction measurement, cost of quality and real-world company case studies. Skills: Total Quality Management (TQM), quality assurance.",
+      detail: "Module 1, Foundations and Principles of TQM: the origins, evolution and guiding principles of TQM, global adoption trends, its core philosophies, and how management commitment drives organizational excellence.\nModule 2, Practices, Applications and Case Studies: customer and employee principles, evidence-based practices, continuous improvement and organization-wide participation, the economics of quality, and real-world company case studies.\nOutcomes: analyze the evolution of TQM, evaluate implementation frameworks, assess quality measurement approaches, and apply TQM principles to support continuous improvement.",
       image: "img/certificates-coursera-mastering-total-quality-management.webp",
       url: "https://coursera.org/verify/52QPRBGFNOZQ"
     },
